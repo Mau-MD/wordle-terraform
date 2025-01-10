@@ -5,6 +5,7 @@ const wordList = require('word-list-json');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const versionId = Math.random().toString(36).substring(2, 15);
 
 // Configure AWS
 AWS.config.update({
@@ -128,7 +129,6 @@ app.get('/api/leaderboard', async (req, res) => {
 
 // Version endpoint
 app.get('/api/version', (req, res) => {
-    const versionId = Math.random().toString(36).substring(2, 15);
     res.json({ version: versionId });
 });
 
